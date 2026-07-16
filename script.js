@@ -151,3 +151,42 @@ themeBtn.onclick=function(){
 document.body.classList.toggle("light");
 
 }
+// -----------------------------
+// EmailJS Configuration
+// -----------------------------
+
+emailjs.init({
+    publicKey: "EG2MIdMx9sdoeUH71",
+});
+
+const contactForm = document.getElementById("contact-form");
+
+if (contactForm) {
+
+    contactForm.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        emailjs.sendForm(
+            "service_mqgx8ta",
+            "template_5unvovb",
+            this
+        )
+        .then(() => {
+
+            alert("✅ Message sent successfully!");
+
+            contactForm.reset();
+
+        })
+        .catch((error) => {
+
+            console.error(error);
+
+            alert("❌ Failed to send message.");
+
+        });
+
+    });
+
+}
