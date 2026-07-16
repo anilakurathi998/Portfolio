@@ -166,6 +166,7 @@ if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
 
         e.preventDefault();
+		console.log("Form submitted");
 
         emailjs.sendForm(
             "service_mqgx8ta",
